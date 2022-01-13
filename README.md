@@ -1,4 +1,4 @@
-## ![](https://docs.github.com/assets/images/site/favicon.png) [GitHub](https://github.com/MirrorTab/api/)
+## ![](https://docs.github.com/assets/images/site/favicon.png) [GitHub](https://github.com/MirrorTab/api_v1/)
 
 ## Documentation for api.mirrortab.com 
 Public v1 API to manage MirrorTab sessions
