@@ -5,7 +5,6 @@
 # Define the api_key
 api_key='333c5322babf799edc1efdea4a'
 
-
 generate_post_data()
 {
   cat <<EOF
@@ -17,7 +16,7 @@ EOF
 
 
 # API v1 URL
-list_sessions_api_url='https://api.mirrortab.com/list_mtvb'
+list_sessions_api_url='https://api.mirrortab.com/list_sessions'
 
 # This is easy :) 
 curl $list_sessions_api_url -H "Content-Type:application/json" -X POST -d "$(generate_post_data)"

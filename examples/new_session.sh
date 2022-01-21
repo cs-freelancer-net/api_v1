@@ -8,7 +8,7 @@ api_key='333c5322babf799edc1efdea4a'
 ### Define the options
 
 # String for the session name - this is optional 
-session_name='My first MirrorTab Session'
+session_name='My API MirrorTab Session'
 
 # Setting go_code_enable to true returns a public gocode that does not require users to create a MirrorTab account.
 # The gocode is a random string and will be required to share the session.
@@ -34,7 +34,8 @@ EOF
 
 
 # API v1 URL
-new_session_api_url='https://api.mirrortab.com/build_mtvb'
+new_session_api_url='https://api.mirrortab.com/new_session'
+
 
 # This is easy :) 
 curl $new_session_api_url -H "Content-Type:application/json" -X POST -d "$(generate_post_data)"

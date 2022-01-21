@@ -22,7 +22,7 @@ EOF
 }
 
 # API v1 URL
-remove_sessions_api_url='https://api.mirrortab.com/remove_mtvb'
+remove_sessions_api_url='https://api.mirrortab.com/remove_session'
 
 # This is easy :) 
 curl $remove_sessions_api_url -H "Content-Type:application/json" -X POST -d "$(generate_post_data)"

@@ -47,7 +47,7 @@ Free accounts can not access the API. Enterprise and paid accounts have limits o
 ```
 
 ## list_sessions
-### This list all new MirrorTab sessions and mtIDs assigned to given api_key
+### This list all new MirrorTab sessions assigned to given api_key
 ``` 
  # URL: https://api.mirrortab.com/list_sessions
  # Method: POST
