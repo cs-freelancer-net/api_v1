@@ -25,15 +25,19 @@ Free accounts can not access the API. Enterprise and paid accounts have limits o
  # String for the session name - this is optional 
  session_name='My first MirrorTab session'
 
- # Setting go_code_enable to true returns a public gocode that does not require users to create a MirrorTab account.
- # The gocode is a random string and will be required to share the session.
- # Setting go_code_enable to false requires the other users of the session to have a MirrorTab account.
- # The default is false and private
- go_code_enable='true' 
+ # Permissions
+ # open - this allows anyone with the url to join the MirrorTab session
+ # gocode - the MirrorTab api will generate a gocode allowing anyone with this code to join - (default)
+ # account - this requires all users of the session to have a MirrorTab account to join the session
+ permissions='open'
 
  # duration_min is the time in minutes before the session get removed - default is 45 mins
  duration_min='30'
- 
+
+ # This is optional argument opens an array of URLs in the MirrorTab session
+ # urls to be opened
+ urls="['https://hackernews.com','https://silvershots.com']"
+
  # This should return the following JSON
  #
  # {"session_id":"cllgnpvinm4yyvz76ohpxshxq0nr67","session_name":"My first MirrorTab Session","go_url":"rtbvdenadtz0is0rg2f16lzvdazyx1","gocode":"cat-coffee- 396","kill_time_UTC":1642101252956}
