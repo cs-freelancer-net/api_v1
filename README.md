@@ -1,6 +1,4 @@
-## ![](https://docs.github.com/assets/images/site/favicon.png) [GitHub](https://github.com/MirrorTab/api_v1/)
-
-## Documentation for api.mirrortab.com 
+## ![](https://docs.github.com/assets/images/site/favicon.png) [API Doc for api.mirrortab.com](https://docs.github.com/assets/images/site/favicon.png)
 Public v1 API to manage MirrorTab sessions
 
 ## Requirements
@@ -12,7 +10,7 @@ Free accounts can not access the API. Enterprise and paid accounts have limits o
 ## Code Examples
 - [BASH](https://github.com/MirrorTab/api_v1/tree/main/examples)
 
-## Overview of API 
+## Endpoints
 
 ### Create New Session
 
@@ -34,22 +32,22 @@ This creates a new MirrorTab session and returns a URL to allow users to join.
 }
 ```
 
-```
-Permissions
-- open - this allows anyone with the url to join the MirrorTab session
-- gocode - the MirrorTab api will generate a gocode allowing anyone with this code to join - (default)
-- account - this requires all users of the session to have a MirrorTab account to join the session
-```
+
+    Permissions
+    - open - this allows anyone with the url to join the MirrorTab session
+    - gocode - the MirrorTab api will generate a gocode allowing anyone with this code to join - (default)
+    - account - this requires all users of the session to have a MirrorTab account to join the session
+
 
 **Request Body Example** 
 
 ```json
 {
-    api_key='333c5322babf799edc1efdea4a',
-    session_name='My first MirrorTab session',
-    permissions='open',
-    duration_min='30'
-    urls="['https://hackernews.com','https://silvershots.com']"
+    api_key:'333c5322babf799edc1efdea4a',
+    session_name:'My first MirrorTab session',
+    permissions:'open',
+    duration_min:'30'
+    urls:"['https://hackernews.com','https://silvershots.com']"
 }
 ```
 
@@ -63,11 +61,11 @@ Permissions
 
 ```json
 {
-  session_id =  rtbvdenadtz0is0rg2f16lzvdazyx1 
-  session_name = "My first MirrorTab session"
-  go_url = “https://mirrortab.com/go/rtbvdenadtz0is0rg2f16lzvdazyx1” 
-  gocode=”Ilikepurplecars” //public gocode to be used at https://MirrorTab.com
-  kill_time_UTC=unix_datetime 
+  session_id: "rtbvdenadtz0is0rg2f16lzvdazyx1",
+  session_name: "My first MirrorTab session",
+  go_url: “https://mirrortab.com/go/rtbvdenadtz0is0rg2f16lzvdazyx1” ,
+  gocode: ”Ilikepurplecars” //public gocode to be used at https://MirrorTab.com
+  kill_time_UTC: "unix_datetime" 
 }
 ```
 
