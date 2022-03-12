@@ -69,7 +69,7 @@ This creates a new MirrorTab session and returns a URL to allow users to join.
 }
 ```
 
-## Error Responses
+#### Error Responses
 
 **Condition** : If api_key is invalid.
 
