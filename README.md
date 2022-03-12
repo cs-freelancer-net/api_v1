@@ -1,18 +1,18 @@
-## ![](https://docs.github.com/assets/images/site/favicon.png) [API Doc for api.mirrortab.com](https://docs.github.com/assets/images/site/favicon.png)
+### ![](https://docs.github.com/assets/images/site/favicon.png) [API Doc for api.mirrortab.com](https://docs.github.com/assets/images/site/favicon.png)
 Public v1 API to manage MirrorTab sessions
 
-## Requirements
+### Requirements
 Please login and visit https://mirrortab.com/API to get your api_key
 
-## Limits
+### Limits
 Free accounts can not access the API. Enterprise and paid accounts have limits on number of sessions and session duration
 
-## Code Examples
+### Code Examples
 - [BASH](https://github.com/MirrorTab/api_v1/tree/main/examples)
 
-## Endpoints
+### Endpoints
 
-### Create New Session
+#### Create New Session
 
 This creates a new MirrorTab session and returns a URL to allow users to join.
 
@@ -51,13 +51,13 @@ This creates a new MirrorTab session and returns a URL to allow users to join.
 }
 ```
 
-## Success Response
+#### Success Response
 
 **Condition** : If everything is OK and session is successfully created.
 
 **Code** : `201 CREATED`
 
-**Content example**
+**Response Body**
 
 ```json
 {
