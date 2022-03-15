@@ -93,47 +93,137 @@ This creates a new MirrorTab session and returns a URL to allow users to join.
 }
 ```
 
-## list_sessions
-### This list all new MirrorTab sessions assigned to given api_key
-``` 
- # URL: https://api.mirrortab.com/list_sessions
- # Method: POST
- # Headers: Content-type: application/json
- # Define the api_key
- api_key='333c5322babf799edc1efdea4a'
- 
- # This should return the following JSON list of sessions
- #
- # # Session ID                        #Session name as string                     # Full gocode                                                    # Kill time unix timestamp     #GoCode string
- #
- # {"rtbvdenadtz0is0rg2f16lzvdazyx1":{"session_name":"My first MirrorTab Session","go_url":"https://mirrortab.com/go/rtbvdenadtz0is0rg2f16lzvdazyx1","kill_time_UTC":1642101252956,"gocode":"cat-coffee-396"}}
- #
- 
+#### List existing sessions
+
+This list all new MirrorTab sessions assigned to given api_key.
+
+**URL** : `/list_sessions`
+
+**Method** : `POST`
+
+**Request Body**
+
+```json
+{
+    api_key:"[Your unique API Key]"
+}
 ```
 
-## remove_session
-### This removes a MirrorTab session given the session_id and api_key
-``` 
- # URL: https://api.mirrortab.com/remove_session
- # Method: POST
- # Headers: Content-type: application/json
+**Request Body Example** 
 
- # MirrorTab session will be removed automatically at the end of the configured duration
- # To remove the session before the scheduled time, use this function
+```json
+{
+    api_key:'333c5322babf799edc1efdea4a',
+}
+```
 
- # Define the api_key
- api_key='333c5322babf799edc1efdea4a'
+#### Success Response
 
- # Define the session id to remove
- session_id='rtbvdenadtz0is0rg2f16lzvdazyx1'
+**Condition** : If api_key is valid and it has active sessions.
 
- # This should return the status or an error
- # Passing case
- #
- # {"removed":true}
- #
- # Error example - it is possible the session already timed out or the session_id or api_key is not valid
- #
- # {"removed":false,"error_msg":"could not remove the session -e2"}
+**Code** : `200`
 
+**Response Body**
+
+```json
+{   
+    "rtbvdenadtz0is0rg2f16lzvdazyx1":   { 
+                                            "session_name":"My first MirrorTab Session",
+                                            "go_url":"https://mirrortab.com/go/rtbvdenadtz0is0rg2f16lzvdazyx1",
+                                            "kill_time_UTC":1642101252956,
+                                            "gocode":"cat-coffee-396"
+                                        }
+}
+```
+
+### Or
+
+**Condition** : If api_key is valid and it has no active sessions.
+
+**Code** : `204 NO CONTENT`
+
+
+#### Error Responses
+
+**Condition** : If api_key is invalid.
+
+**Code** : `401 Unauthorized`
+
+**Content** : `{}`
+
+### Or
+
+**Condition** : If api_key is not provided.
+
+**Code** : `400 BAD REQUEST`
+
+**Content example**
+
+```json
+{
+    "api_key": [
+        "This field is required."
+    ]
+}
+```
+
+#### Remove existing session
+
+This removes a MirrorTab session given the session_id and api_key.
+
+**URL** : `/remove_session`
+
+**Method** : `POST`
+
+**Request Body**
+
+```json
+{
+    api_key:"[Your unique API Key]",
+    session_id:"[session id to remove]"
+}
+```
+
+**Request Body Example** 
+
+```json
+{
+    api_key:'333c5322babf799edc1efdea4a',
+    session_id:'rtbvdenadtz0is0rg2f16lzvdazyx1'
+}
+```
+
+#### Success Response
+
+**Condition** : If api_key is valid and it session id is active.
+
+**Code** : `200`
+
+**Response Body**
+
+```json
+{ removed: true }
+```
+
+#### Error Responses
+
+**Condition** : If api_key is invalid.
+
+**Code** : `401 Unauthorized`
+
+**Content** : `{}`
+
+### Or
+
+**Condition** : If the session already timed out or the session_id or api_key is not valid
+
+**Code** : `400 BAD REQUEST`
+
+**Content example**
+
+```json
+{
+    removed:false,
+    error_msg:"could not remove the session -e2"
+}
 ```
